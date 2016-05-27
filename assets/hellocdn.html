@@ -1,0 +1,89 @@
+
+<!-- saved from url=(0071)https://fbcdn-photos-c-a.akamaihd.net/hphotos-ak-ash3/hellocdn.html?v=3 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script>
+function setHeaders(xhr, config) {
+  if (config.cdn == "ak") {
+    xhr.setRequestHeader("Pragma",
+      "akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable,"+
+      " akamai-x-get-cache-key,akamai-x-get-extracted-values, akamai-x-get-nonces,"+
+      " akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key,akamai-x-serial-no");
+  } else {
+    xhr.setRequestHeader("X-Fb-Debug",'True');
+  }
+
+  if (!config.clear_cache) {
+    xhr.setRequestHeader('Cache-Control','no-cache')
+  } else {
+    xhr.setRequestHeader('If-Modified-Since', new Date(0).toUTCString());
+  }
+}
+
+function getCurrentMilliseconds() {
+  d = new Date();
+  return d.getTime();
+}
+
+function run_tests(config) {
+  var xhr = new XMLHttpRequest();
+  if (config.clear_cache) {
+    config.url += '?r='+Math.random();
+  }
+
+  xhr.open("GET", config.url);
+  setHeaders(xhr, config);
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState != 4) {
+      return;
+    }
+
+    var result = {};
+    result['loading_time'] = 0;
+    result['platform'] = 'www';
+    result['cdn'] = config.cdn;
+    // The the last entry in the window performance array 
+    // contains the resource timing of above xhr request.
+    // Make sure 1) set xhr to be synchronous, 2) sending the last element
+    // to sever for logging.
+    if (window.performance.getEntries) {
+      var rt = window.performance.getEntries();
+      result['resource_timing'] = rt[rt.length-1];
+    }
+    result['url'] = config.url;
+    result['headers'] = xhr.getAllResponseHeaders();
+    result['status'] = xhr.status;
+    postResults([result]);
+  };
+
+  // This will cause window.performance to update its resource timing.
+  xhr.send();
+}
+
+// hardcode the return url
+var result_endpoint = "https://www.facebook.com/hellocdn/results";
+
+var akamai_pattern = /^(fb|fbcdn-).*-a\.akamaihd.net$/;
+var fbcdn_pattern = /.*\.fbcdn\.net$/;
+
+// only authorize loading this script from our cdns
+function isValidDomain() {
+  return akamai_pattern.test(document.domain) ||
+    fbcdn_pattern.test(document.domain);
+}
+
+//sends the result back by loading an image to avoid XSS protections
+function postResults(results) {
+  var result = JSON.stringify({results: results});
+  var return_image = new Image();
+  return_image.src = result_endpoint+"?data="+encodeURIComponent(result); 
+}
+
+if (window.addEventListener && isValidDomain()) {
+  window.addEventListener("message", function(e) {
+    var msgObj = JSON.parse(e.data);
+    config = msgObj.config;
+    config.map(run_tests);
+  });
+};
+</script>
+</head><body></body></html>
