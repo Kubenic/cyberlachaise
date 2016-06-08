@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="video.css">
+	<link rel="stylesheet" href="assets/fullpage/jquery.fullpage.css">
+	<link rel="stylesheet" href="mouse.css">
+</head>
+<body>
+	<div class="virgule"style ="display:none">
+			<video src="assets/virgule_1.mp4" autoplay ></video>
+	</div>
+	<div class="fullpage">
+		<div class="section">
+			<div class="video">
+				<video src="assets/haunted.mp4" autoplay loop></video>
+			</div>
+			<div class="mouse_scroll">
+					<div class="mouse">
+						<div class="wheel"></div>
+					</div>
+				<div>
+				<span class="m_scroll_arrows unu"></span>
+				<span class="m_scroll_arrows doi"></span>
+				<span class="m_scroll_arrows trei"></span>
+				</div>
+			</div>
+		</div>
+		<div class="section"></div>
+		<div class="section"></div>
+		<div class="section"></div>
+		<div class="section"></div>
+	</div>
+
+	<script src="assets/jquery.min.js"></script>
+<script src="assets/fullpage/jquery.fullPage.js"></script>
+<script>
+	var bgVidContainer = document.querySelector('.video');
+	bgVidContainer.style.height= window.innerHeight +'px';
+
+	
+	
+
+/*	document.querySelector('.virgule video').addEventListener('ended',myHandler,false);
+	window.addEventListener('')
+function myHandler(e) {
+    console.log('ended');
+    document.querySelector('.virgule').style.display="none";
+    setTimeout(function(){
+    	document.querySelector('.virgule').style.display="";
+        document.querySelector('.virgule video').play();
+    }, 5000);
+}*/
+	document.querySelector('.virgule video').addEventListener('ended',function(e){
+		document.querySelector('.virgule').style.display="none";
+	},false);
+
+  $('.fullpage').fullpage({
+  		scrollingSpeed:300,
+        onLeave: function(index, nextIndex, direction){
+            var leavingSection = $(this);
+            var virgule, virguleVid;
+
+            virgule = document.querySelector('.virgule');
+            virguleVid = virgule.querySelector('video');
+
+            virgule.style.display='';
+            virguleVid.play();
+
+            //after leaving section 2
+            if(index == 2 && direction =='down'){
+               // alert("Going to section 3!");
+            }
+
+            else if(index == 2 && direction == 'up'){
+               // alert("Going to section 1!");
+                var bgVid = document.querySelector('.video video');
+            bgVid.play();
+            }
+        },
+        afterRender: function(){
+            var pluginContainer = $(this);
+            var bgVid = document.querySelector('.video video');
+            bgVid.play();
+        }
+    });
+</script>
+	
+</body>
+
+
+
+</html> 
