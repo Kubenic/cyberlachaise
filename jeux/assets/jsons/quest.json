@@ -1,0 +1,106 @@
+{
+  "quizz": [
+    {
+    	quest : "J’ai vécu à une époque où l’on était debout nuit et jour.",
+    	chat : "Notre esprit avait pour habitude d’adapter ses convictions politiques au régime en place. Ainsi, être royaliste ne l’empêchera pas de profiter des avantages de la Révolution.",
+    	resp : [
+    		"révolution",
+    		"la révolution",
+    		"la revolution"
+    	],
+    	pj : false,
+	},
+
+	{
+    	quest : "Construite sur un marécage, j’ai été nommée après un cardinal de Saint-Germain des prés, je relie deux artères du 6ème arrondissement de Paris et débouche sur un jardin étranger. ",
+    	chat : "C’est au n°5 que notre revenant travaillait et recevait une clientèle très variée : classe aisée, magistrats, militaires...",
+    	resp : [
+    		"rue de tournon",
+    		"tournon",
+    	],
+    	pj : "indice2.jpg",
+	},
+
+	{
+    	quest : "L’une de mes proches semble jouir d’une belle notoriété de vos jours. Ce qui me surprend, c’est que personne ne s’étonne de son étrange longévité. ",
+    	chat : "Joséphine... de Beauharnais, impératrice des français de 1804 à 1809 n’avait pas les pouvoirs de l’ange gardien mais voyait régulièrement notre revenant pour ses précieux conseils.",
+    	resp : [
+    		"joséphine",
+    		"josephine",
+    		"joséphine ange gardien",
+    		"josephine ange gardien",
+    	],
+    	pj : "indice3.jpg",
+	},
+
+	{
+    	quest : " J’en ai caché trois dans l’image… J’en ai par ailleurs caché bien plus au cours de ma vie.",
+    	chat : "Très célèbre dans sa spécialité, notre fantôme a su accumuler reconnaissance et richesses tout au long de sa vie, et laissa une grande fortune à sa mort.",
+    	resp : [
+    		"lingots",
+    		"lingot"	
+    	],
+    	pj : "indice4.png",
+	},
+
+	{
+    	quest : "Je vois que certains s’amusent avec mes amis de l’époque. C’était une vraie terreur dans les années 1790. J’imagine que vous ne voyez pas de qui je veux parler ?",
+    	chat : "Et oui c’est bien lui. Robespierre et notre esprit étaient très proches, ils se sont côtoyés à de nombreuses reprises. Elle s’en est toutefois éloignée quand son impopularité a commencé à déteindre sur son activité. ",
+    	resp : [
+    		"robespierre",	
+    	],
+    	pj : "indice5.gif",
+	},
+
+	{
+    	quest : "Un ami parti trop tôt… Ce n’est pourtant pas faute de l’avoir prévenu. Vous voyez de qui je veux parler ?",
+    	chat : "Comme d’autres illustres de son temps, Marat voyait régulièrement notre fantôme. Reste à savoir si cela lui a vraiment servi.",
+    	resp : [
+    		"marat",	
+    	],
+    	pj : "indice6.png",
+	},
+
+	{
+    	quest : "Eux aussi font croire au plus grand nombre qu’ils se jouent du futur. Pourtant, je ne sais quelle magie les anime, mais les leurs semblent régulièrement se vérifier.",
+    	chat : "Oui, à l’image de nos météorologistes, notre fantôme réalisait ses propres prévisions. Pas sûr toutefois qu’il savait prévoir le temps.",
+    	resp : [
+    		"prévisions",
+    		"previsions",
+    		"prévision",
+    		"prevision"	
+    	],
+    	pj : "indice7.mp4",
+	},
+
+	{
+    	quest : "Mon numéro professionnel est le 01 44 01 77 01, je suis joignable 5j / 7 de 9 à 18h",
+    	chat : "Avant même l’apparition du Minitel, notre revenant avait déjà ouvert son bureau de voyance… son avenir sera-t-il différent de celui de l’invention des années 80 ? ",
+    	resp : [
+    		"voyante",
+    		"bureau de voyante",
+    	],
+    	pj : false,
+	},
+
+	{
+    	quest : "Une combinaison de signes prédisait ma mort, il semble en être de même ici. <br/> 1 ? (10 x 78) x 4 + 19 ? 700 - (12 000 ? 6)",
+    	chat : "Mort en 1843, notre fantôme avait pourtant prévu de disparaître… 30 années plus tard. Une erreur fatale.",
+    	resp : [
+    		"1843",
+    	],
+    	pj : false,
+	},
+
+	{
+    	quest : "Bluffer était mon métier et comme d’autres j’aimais les cartes. Pourtant aucune chance de me retrouver à Vegas.",
+    	chat : "Référence dans le domaine de la divination de son temps, mais même encore aujourd’hui, notre revenant a même donné son nom a plusieurs jeux de cartes.",
+    	resp : [
+    		"cartomancienne",
+    	],
+    	pj : false,
+	},
+
+  ],
+
+ }
