@@ -43,6 +43,7 @@ for(var i=0; i< hitboxes.length; i+=1){
 		var boxname = target.querySelector('.boxname');
 		boxname.classList.remove("hide");
 		boxname.classList.add("show");
+		
 	},false);
 
 	hitboxes[i].addEventListener('mouseout',function(e){
