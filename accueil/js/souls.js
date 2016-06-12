@@ -32,23 +32,29 @@ var hitboxes = document.querySelectorAll('.hitbox');
 for(var i=0; i< hitboxes.length; i+=1){
 	hitboxes[i].addEventListener('mouseover',function(e){
 		console.log('mousein');
-		var target = e.target
+		var target = e.target;
 		while(!target.classList.contains('souls')){
 			target = target.parentElement;
 		}
 		target.style.animationPlayState="paused";
 		//target.style.marginTop = "0px";
 		console.log(target);
+		var boxname = target.querySelector('.boxname');
+		boxname.classList.remove("hide");
+		boxname.classList.add("show");
 	},false);
 
 	hitboxes[i].addEventListener('mouseout',function(e){
 		console.log('mouseout');
-		var target = e.target
+		var target = e.target;
 		while(!target.classList.contains('souls')){
 			target = target.parentElement;
 		}
 		target.style.animationPlayState="";
 
 		console.log(target);
+		var boxname = target.querySelector('.boxname');
+		boxname.classList.add("hide");
+		boxname.classList.remove("show");
 	},false);
 }
