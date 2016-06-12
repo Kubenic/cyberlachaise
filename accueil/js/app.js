@@ -36,4 +36,34 @@ $('.fullpage').fullpage({
       }
   });
 
+var video = document.querySelector('.video video');
+var btnPlay = document.getElementById('play');
+var btnPause = document.getElementById('pause');
+var btnMuet = document.getElementById('muet');
+var muted = document.querySelector('.fa-volume-up');
 
+btnPlay.addEventListener("click", playVid);
+function playVid() {
+  // console.log('toto');
+  video.play();
+}
+
+btnPause.addEventListener("click", pauseVid);
+function pauseVid() {
+  // console.log('toto');
+  video.pause();
+}
+
+btnMuet.addEventListener("click", muetVid);
+function muetVid() {
+  // console.log('toto');
+  if (video.muted === true) {
+    video.muted = false;
+    muted.classList.add('fa-volume-up');
+    muted.classList.remove('fa-volume-off');
+  } else {
+    video.muted = true;
+    muted.classList.remove('fa-volume-up');
+    muted.classList.add('fa-volume-off');
+  }
+}
