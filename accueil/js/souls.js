@@ -27,7 +27,8 @@ for(var i = 0; i<souls.length; i+=1){
 	glow.style.animationDelay = (randomGlow+5)+'s';
 }
 
-var hitboxes = document.querySelectorAll('.hitbox');
+function startHitboxes(){
+	var hitboxes = document.querySelectorAll('.hitbox');
 	console.log(hitboxes);
 for(var i=0; i< hitboxes.length; i+=1){
 	hitboxes[i].addEventListener('mouseover',function(e){
@@ -58,3 +59,5 @@ for(var i=0; i< hitboxes.length; i+=1){
 		boxname.classList.remove("show");
 	},false);
 }
+}
+
