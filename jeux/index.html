@@ -1588,8 +1588,9 @@ function putYaUp(){
         <div data-reactroot="" class="UFIList">
 
             <h6 class="accessible_elem">Commentaires</h6>
-            <div>
+            <div class = "commentContainer">
                 <!-- react-empty: 20 -->
+
             </div>
             <div id="addComment_10209883089863542" class="UFIRow _4oep UFIAddComment UFIAddCommentWithPhotoAttacher _2o9m" data-ft="{&quot;tn&quot;:&quot;[&quot;}">
                 <div class="UFIMentionsInputWrap UFIStickersEnabledInput clearfix" direction="left">
@@ -1625,6 +1626,13 @@ function putYaUp(){
 </script>
 <!-- END TEMPLATE:post -->
 
+<!-- TEMPLATE:comment -->
+<script id="commentTemplate" type="x-tmpl-mustache">
+<div class="UFIRow UFIComment _4oep" role="article" aria-label="Commenter" data-ft="{&quot;tn&quot;:&quot;R&quot;}"><div spacing="medium" direction="left" class="clearfix"><div class="_ohe lfloat"><a data-ft="{&quot;tn&quot;:&quot;T&quot;}" data-hovercard="/ajax/hovercard/hovercard.php?id=1556702837&amp;extragetparams=%7B%22on_public_ufi%22%3Afalse%2C%22hc_location%22%3A%22ufi%22%7D" href="https://www.facebook.com/#" class="img _8o _8s UFIImageBlockImage" tabindex="-1" aria-hidden="true"><img alt="" class="img UFIActorImage _54ru img" src="{{ profileIMG }}"></a></div><div class=""><div class="UFIImageBlockContent _42ef clearfix" direction="right"><div class="_ohf rfloat"><button class="UFICommentCloseButtonFake _50zy _50-0 _50z- _5upp _42ft" tabindex="-1" type="button" title="Supprimer"><!-- react-text: 62 -->Supprimer<!-- /react-text --></button></div><div class=""><div class="UFICommentContentBlock"><div class="UFICommentContent"><span><a data-ft="{&quot;tn&quot;:&quot;;&quot;}" class=" UFICommentActorName" data-hovercard="/ajax/hovercard/hovercard.php?id=1556702837&amp;extragetparams=%7B%22is_public%22%3Afalse%2C%22hc_location%22%3A%22ufi%22%7D" dir="ltr" href="https://www.facebook.com/#"><!-- react-text: 68 -->{{ name }}<!-- /react-text --></a></span><span><!-- react-text: 70 --> <!-- /react-text --><span data-ft="{&quot;tn&quot;:&quot;K&quot;}"><span class="UFICommentBody"><span>
+{{ message }}
+</span></span></span></span><div class="UFITranslatedText"></div><span></span></div><div class="fsm fwn fcg UFICommentActions"><a class="UFILikeLink" data-ft="{&quot;tn&quot;:&quot;>&quot;}" data-testid="ufi_comment_like_link" href="#" role="button" title="J’aime ce commentaire">J’aime</a><span role="presentation" aria-hidden="true"> · </span><a class="UFIReplyLink" href="#" role="button">Répondre</a><span role="presentation" aria-hidden="true"> · </span><span><a class="uiLinkSubtle" href="/permalink.php?story_fbid=10209503698420137&amp;id=1556702837&amp;comment_id=10209505087894873&amp;comment_tracking=%7B%22tn%22%3A%22R%22%7D" data-ft="{&quot;tn&quot;:&quot;N&quot;}" data-testid="ufi_comment_timestamp"><abbr class="livetimestamp" title="mardi 7 juin 2016, 21:14" data-utime="1465326869" data-shorten="true">7 juin, 21:14</abbr></a></span></div><span><a class="UFICommentCloseButton _50zy _50-0 _50z- _5upp _42ft" data-testid="ufi_comment_close_button" data-hover="tooltip" data-tooltip-alignh="center" data-tooltip-content="Masquer ça" href="#"></a></span></div></div></div></div></div></div>
+</script>
+<!-- END TEMPLATE:comment -->
 
 <!-- TEMPLATE:incoming message-->
 <script id="insetMessageTemplate" type="x-tmpl-mustache">
@@ -1709,6 +1717,21 @@ var questionNumber = 1;
     checkTextAreas();
   }
 
+   function insertComment(data){
+    var container, postMessage, userAvatar, userName, template, rendered;
+    postMessage = data.message || "null";
+    userAvatar = data.avatar || _uav;
+    userName = data.name || _unm;
+    container = data.container;
+    container = container.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+    container = container.querySelector('.commentContainer');
+    template = $('#commentTemplate').html();
+    Mustache.parse(template);   // optional, speeds up future uses
+    rendered = Mustache.render(template, {message: postMessage, profileIMG : userAvatar, name : userName});
+    container.appendChild(rendered);
+
+  }
+
 
   function verifyAnswer(o){
     var answerNumber = o.dataset.questionNumber;
@@ -1725,6 +1748,10 @@ var questionNumber = 1;
             for(var i= 0; i< answers.length; i+=1){
                 if(answers[i] === inputAnswer.toLowerCase()){
                     console.log("GOOD JOB");
+                    insertComment({
+                        message : inputAnswer,
+                        container: o
+                    });
                     askAQuestion();
                 }
             }
@@ -1759,6 +1786,7 @@ function checkTextAreas(){
     },true);
   }
 }
+
 function getQuestion(number){
   var xhr = new XMLHttpRequest();
 xhr.open('GET', 'assets/jsons/quest.json',false);
