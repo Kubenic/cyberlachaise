@@ -41,6 +41,22 @@ h1, h2, h3, h4, h5, h6, p, span {
   font-size: 1.25em;
 }
 
+.img {
+  display: block;
+  width: 121px;
+  height: 137px;
+  float: left;
+  margin: 70px 59px 0;
+}
+
+.f {
+  background: url('../asset/img/img-femme.webp');
+}
+
+.m {
+  background: url('../asset/img/img-homme.webp');
+}
+
 /*************/
 /*** SOULS ***/
 .creepywall {
