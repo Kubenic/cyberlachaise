@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/video.css">
     <link rel="stylesheet" type="text/css" href="css/mouse.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="asset/fa/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css">
     </head>
@@ -37,6 +38,7 @@
       </div>
 
       <div class="section">
+        <audio id="audioPlayer" src="asset/audio/univers.mp3"></audio>
         <div class="wrap">
           <h1 class="title">Que s'est-il passé ?</h1>
           <p class="txt">
@@ -62,6 +64,18 @@
         </div>
       </div>
       <div class="section">
+        <div class="bouton-conteneur">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+            <defs>
+              <filter id="filter-glitch-3">
+                <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" result="warp" />
+                <feOffset dx="-90" dy="-90" result="warpOffset" />
+                <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warpOffset" />
+              </filter>
+            </defs>
+          </svg>
+          <button id="component-7" class="button button--7">Click me</button>
+        </div>
         <div class="wrap victime">
           <h1 class="title">Les victimes</h1>
         </div>
@@ -217,9 +231,10 @@
     <!-- SCRIPT -->
   <script type="text/javascript" src="js/build/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.fullPage.js"></script>
-
+  <script type="text/javascript" src="js/TweenMax.min.js"></script>
   <script type="text/javascript" src="js/souls.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 
   </body>
 </html>

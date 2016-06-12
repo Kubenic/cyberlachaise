@@ -10,6 +10,7 @@ $('.fullpage').fullpage({
   onLeave: function(index, nextIndex, direction){
     var leavingSection = $(this);
     var virgule, virguleVid;
+    var player = document.querySelector('#audioPlayer');
 
     virgule = document.querySelector('.virgule');
     virguleVid = virgule.querySelector('video');
@@ -18,12 +19,15 @@ $('.fullpage').fullpage({
     virguleVid.play();
 
     //after leaving section 2
-    if(index == 2 && direction =='down'){
+    if(index == 1 && direction =='down'){
       // alert("Going to section 3!");
+      player.play();
+      player.volume = 0.15;
     }
 
           else if(index == 2 && direction == 'up'){
              // alert("Going to section 1!");
+              player.pause();
               var bgVid = document.querySelector('.video video');
           bgVid.play();
           }
@@ -60,10 +64,10 @@ function muetVid() {
   if (video.muted === true) {
     video.muted = false;
     muted.classList.add('fa-volume-up');
-    muted.classList.remove('fa-volume-off');
+    muted.classList.remove('fa-volume-down');
   } else {
     video.muted = true;
     muted.classList.remove('fa-volume-up');
-    muted.classList.add('fa-volume-off');
+    muted.classList.add('fa-volume-down');
   }
 }
