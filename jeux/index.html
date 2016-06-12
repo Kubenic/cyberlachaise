@@ -1005,7 +1005,7 @@
                                                                                         <div data-reactroot="">
                                                                                             <div class="messageContainer">
 
-                                                                                                <div class="_4tdt">
+                                                                                               <!-- <div class="_4tdt">
                                                                                                     <div class="_31o4">
                                                                                                         <a aria-label="Camille Jean Mercredi 19:18" class="_4tdw" data-hover="tooltip" data-tooltip-content="Camille Jean Mercredi 19:18" data-tooltip-position="left" href="https://www.facebook.com/camille.jean.54"><img src="./assets/13133166_844310629006823_2637599522503877148_n(1).jpg" alt="" class="img"></a>
                                                                                                     </div>
@@ -1164,16 +1164,16 @@
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div>-->
                                                                                     </div>
                                                                                     <div class="accessible_elem">Fin de la conversation</div>
                                                                                     <div>
                                                                                         <div data-reactroot=""></div>
                                                                                     </div>
-                                                                                    <div>
+                                                                                   <!-- <div>
                                                                                         <div data-reactroot="" class="_510g _510e seen">
                                                                                             <div class="_510h"></div><span class="_510f">Vu&nbsp;: 21:12</span></div>
-                                                                                    </div>
+                                                                                    </div> -->
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -1605,7 +1605,7 @@ function putYaUp(){
                                         <div class="UFIAddCommentInput _1osb _5yk1">
                                             <!-- ZONE TEXTUEL -->
 
-                                            <textarea placeholder="votre commentaire" value="" class="answerInputPost"></textarea>
+                                            <textarea data-question-number="{{ questionNumber }}" placeholder="votre commentaire" value="" class="answerInputPost"></textarea>
                                         </div>
                                     </div>
 
@@ -1670,16 +1670,17 @@ function putYaUp(){
 
 
 <script>
+var questionNumber = 1;
 
   function insertPost(data){
     var postMessage, userAvatar, userName, template, rendered;
     postMessage = data.message || "null";
     userAvatar = data.avatar || "";
-    userName = data.name || "John Doe";
+    userName = data.name || _unm;
 
     template = $('#postTemplate').html();
     Mustache.parse(template);   // optional, speeds up future uses
-    rendered = Mustache.render(template, {message: postMessage, profileIMG : userAvatar, name : userName});
+    rendered = Mustache.render(template, {message: postMessage, profileIMG : userAvatar, name : userName, questionNumber : questionNumber});
     $('.postsContainer').append(rendered);
     checkTextAreas();
   }
@@ -1687,7 +1688,7 @@ function putYaUp(){
   function insertMessage(data){
     var dataType, postMessage, userAvatar, target, template, rendered;
     postMessage = data.message || "null";
-    userAvatar = data.avatar || "";
+    userAvatar = data.avatar || _uav;
     dataType = data.type || 'incoming';
 
     if(dataType === "outcoming"){
@@ -1709,16 +1710,39 @@ function putYaUp(){
   }
 
 
-  
+  function verifyAnswer(o){
+    var answerNumber = o.dataset.questionNumber;
+    var inputAnswer = o.value;
+    console.log(inputAnswer);
+    console.log(answerNumber);
 
-</script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'assets/jsons/quest.json',false);
+        xhr.addEventListener('load',function(e){
+            var reponse = JSON.parse(e.target.response);
+            var answers = reponse.quizz[answerNumber-1].resp
+            
+            for(var i= 0; i< answers.length; i+=1){
+                if(answers[i] === inputAnswer.toLowerCase()){
+                    console.log("GOOD JOB");
+                    askAQuestion();
+                }
+            }
+        },true);
+        xhr.send();
 
-<script>
-var questionNumber = 1;
+  }
+
   function textAreaAdjust(o) {
-    console.log(o);
+    //console.log(o);
     o.target.style.height = "1px";
     o.target.style.height = (o.target.scrollHeight)+"px";
+
+    if(o.keyCode === 13){
+        o.preventDefault();
+
+        verifyAnswer(o.target);
+    }
 }
 
 
@@ -1728,6 +1752,11 @@ function checkTextAreas(){
   for(var i = 0; i<textareas.length; i+=1){
     console.log(textareas[i]);
     textareas[i].addEventListener('keyup',textAreaAdjust,true);
+    textareas[i].addEventListener('keydown',function(e){
+        if(e.keyCode === 13){
+            e.preventDefault();
+        }
+    },true);
   }
 }
 function getQuestion(number){
