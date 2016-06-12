@@ -7,18 +7,26 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/video.css">
     <link rel="stylesheet" type="text/css" href="css/mouse.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="asset/fa/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css">
     </head>
     <body>
 
     <div class="virgule" style="display:none">
-      <video src="asset/vid/virgule_1.mp4" autoplay></video>
+      <video src="asset/video/virgule_1.mp4" autoplay></video>
+      <audio id="audioPlayer" src="asset/audio/univers.mp3"></audio>
     </div>
 
     <div class="fullpage">
       <div class="section">
+        <div class="icon">
+          <div id="play" class="fa fa-play"></div>
+          <div id="pause" class="fa fa-pause"></div>
+          <div id="muet" class="fa fa-volume-up"></div>
+        </div>
         <div class="video">
-          <video src="asset/vid/cyberlachaise.mp4" autoplay loop></video>
+          <video src="asset/video/cyberlachaise.mp4" autoplay loop></video>
         </div>
         <div class="mouse_scroll">
           <div class="mouse">
@@ -30,15 +38,203 @@
         </div>
       </div>
 
-      <div class="section"></div>
-      <div class="section"></div>
-      <div class="section"></div>
-      <div class="section"></div>
+      <div class="section">
+        <div class="wrap">
+          <h1 class="title">Que s'est-il passé ?</h1>
+          <p class="txt">
+            La vidéo que tu viens de voir est maudite. Alban, Antoine, Léa et Olympe
+            ont été assasinés dans le cimetière du Père Lachaise, par 4 fantômes
+            échappés de leurs tombes. À cause d’un dysfonctionnement d’une antenne
+            WI-FI qui se trouvait à proximité, les revenants ont pu prendre possession
+            de leurs profils sur Facebook. Et ils ne veulent pas s’arrêter là, ils
+            sont maintenant déterminés à contrôler le plus d’identités possible sur
+            Internet. D’ailleurs, l’un d’entre eux s’apprête à prendre possession
+            de la tienne. Pour l’en empêcher, trouve qui il est et signale-le à
+            Facebook, afin que l’accès à ton compte lui soit bloqué. Mais fais-vite,
+            il ne te reste plus beaucoup de temps !
+          </p>
+          <div class="img m"></div>
+          <div class="img m"></div>
+          <div class="img f"></div>
+          <div class="img f"></div>
+          <p class="name">Alban</p>
+          <p class="name">Antoine</p>
+          <p class="name">Léa</p>
+          <p class="name">Olympe</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="bouton-conteneur">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+            <defs>
+              <filter id="filter-glitch-3">
+                <feTurbulence type="fractalNoise" baseFrequency="0.000001" numOctaves="1" result="warp" />
+                <feOffset dx="-90" dy="-90" result="warpOffset" />
+                <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warpOffset" />
+              </filter>
+            </defs>
+          </svg>
+          <button id="component-7" class="button button--7">Click me</button>
+        </div>
+        <div class="wrap victime">
+          <h1 class="title">Les victimes</h1>
+        </div>
+
+        <div class="creepywall">
+          <div class="background">
+            <div class="black_clip"></div>
+          </div>
+
+          <div class="souls">
+            <div class="boxname hide">Serge Landry</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Roland Viens</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Alfred Deblois</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Charles Drouin</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Jules Marquis</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Amber Moquin</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Claude Larivière</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Françoise de Brisay</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Yvon Desforges</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Troy Davignon</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Natalie Brousse</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Hardouin Ricard</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Noelle Tremblay</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Percy Louis</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Frontino Metivier</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Alexandrie Duranseau</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+          <div class="souls">
+            <div class="boxname hide">Fleurette Marcheterre</div>
+            <div class="hitbox"></div>
+            <div class="glow"></div>
+            <div class="inner"></div>
+            <div class="second_halo"></div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="wrap">
+          <h1 class="title">Remerciements</h1>
+          <p class="txt">
+            Parce que sans eux le projet n’aurait pu se faire, parce qu’à notre
+            appel ils ont répondu présent, un grand merci à :<br>
+            XXX du Campus de la Fonderie de l’Image pour l’aide apportée sur la
+            conception du site et de l’expérience.<br>
+            XXX du Campus de la Fonderie de l’Image pour la conception et la
+            réalisation de la maquette du site et du logo CYBER LACHAISE<br>
+            XXX pour le montage du court-métrage, à XXX pour le mixage, XXX pour …<br>
+
+            Mais aussi à XXX pour l’accompagnement apporté tout au long de cette
+            année et aux nombreux professionnels du TIU, producteurs, auteurs,
+            diffuseurs… rencontrés au court de l’élaboration du projet.<br>
+
+            XXXX
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- SCRIPT -->
   <script type="text/javascript" src="js/build/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+  <script type="text/javascript" src="js/TweenMax.min.js"></script>
+  <script type="text/javascript" src="js/souls.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+
   </body>
 </html>

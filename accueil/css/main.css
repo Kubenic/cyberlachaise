@@ -1,0 +1,80 @@
+.bouton-conteneur {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: none;
+  -moz-box-flex: none;
+  box-flex: none;
+  -webkit-flex: none;
+  -moz-flex: none;
+  -ms-flex: none;
+  flex: none;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center; }
+
+.svg-filters {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px; }
+
+.button--1, .button--1 .button__bg, .button--2, .button--4, .button--4 .button__bg, .button--5, .button--6, .button--7, .button--8, .button--9, .button--10 {
+  -webkit-font-smoothing: antialiased;
+  background-color: white;
+  border: none;
+  display: inline-block;
+  font-size: 0.85em;
+  text-decoration: none;
+  user-select: none;
+  letter-spacing: 0.1em;
+  color: black;
+  padding: 20px 40px;
+  text-transform: uppercase;
+  -webkit-transition: background-color 0.1s ease-out;
+  -moz-transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out; }
+  .button--1:hover, .button--1 .button__bg:hover, .button--2:hover, .button--4:hover, .button--4 .button__bg:hover, .button--5:hover, .button--6:hover, .button--7:hover, .button--8:hover, .button--9:hover, .button--10:hover {
+    background-color: white;
+    color: black; }
+  .button--1:focus, .button--1 .button__bg:focus, .button--2:focus, .button--4:focus, .button--4 .button__bg:focus, .button--5:focus, .button--6:focus, .button--7:focus, .button--8:focus, .button--9:focus, .button--10:focus {
+    outline: none;
+    color: black; }
+
+.safari .button, .safari
+.button__bg {
+  -webkit-filter: none !important;
+  filter: none !important; }
+
+.button--7 {
+  transform: translateZ(0);
+  outline: 90px solid transparent !important;
+  -webkit-filter: url("#filter-glitch-3");
+  filter: url("../#filter-glitch-3");
+  pointer-events:visible;
+  cursor: pointer;
+}
