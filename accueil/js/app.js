@@ -22,7 +22,6 @@ $('.fullpage').fullpage({
       // alert("Going to section 3!");
     }
 
-<<<<<<< HEAD
           else if(index == 2 && direction == 'up'){
              // alert("Going to section 1!");
               var bgVid = document.querySelector('.video video');
@@ -36,17 +35,5 @@ $('.fullpage').fullpage({
           startHitboxes();
       }
   });
-=======
-    else if(index == 2 && direction == 'up'){
-      // alert("Going to section 1!");
-      var bgVid = document.querySelector('.video video');
-      bgVid.play();
-    }
-  },
-  afterRender: function(){
-    var pluginContainer = $(this);
-    var bgVid = document.querySelector('.video video');
-    bgVid.play();
-  }
-});
->>>>>>> origin/accueil
+
+
