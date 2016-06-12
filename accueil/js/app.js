@@ -26,7 +26,7 @@ $('.fullpage').fullpage({
     }
 
           else if(index == 2 && direction == 'up'){
-             // alert("Going to section 1!");
+              // alert("Going to section 1!");
               player.pause();
               var bgVid = document.querySelector('.video video');
           bgVid.play();
