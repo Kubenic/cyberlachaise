@@ -57,6 +57,13 @@ h1, h2, h3, h4, h5, h6, p, span {
   background: url('../asset/img/img-homme.webp');
 }
 
+.name {
+  width: 121px;
+  float: left;
+  margin: 10px 59px 0;
+  text-align: center;
+}
+
 /*************/
 /*** SOULS ***/
 .creepywall {
