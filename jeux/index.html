@@ -1003,7 +1003,7 @@
                                                                                     <div class="accessible_elem">Début de la conversation</div><img class="pvm loading hidden_elem img" src="./assets/GsNJNwuI-UM.gif" alt="" width="16" height="11">
                                                                                     <div class="conversation" aria-live="polite" aria-atomic="false">
                                                                                         <div data-reactroot="">
-                                                                                            <div>
+                                                                                            <div class="messageContainer">
 
                                                                                                 <div class="_4tdt">
                                                                                                     <div class="_31o4">
@@ -1605,7 +1605,7 @@ function putYaUp(){
                                         <div class="UFIAddCommentInput _1osb _5yk1">
                                             <!-- ZONE TEXTUEL -->
 
-                                            input
+                                            <textarea placeholder="votre commentaire" value="" class="answerInputPost"></textarea>
                                         </div>
                                     </div>
 
@@ -1630,7 +1630,7 @@ function putYaUp(){
 <script id="insetMessageTemplate" type="x-tmpl-mustache">
   <div class="_4tdt">
      <div class="_31o4">
-        <a aria-label="Camille Jean Mercredi 19:18" class="_4tdw" data-hover="tooltip" data-tooltip-content="Camille Jean Mercredi 19:18" data-tooltip-position="left" href="https://www.facebook.com/camille.jean.54">
+        <a aria-label="" class="_4tdw" data-hover="tooltip" data-tooltip-content="" data-tooltip-position="left" href="https://www.facebook.com/#">
         <img src="{{ profileIMG }}" alt="" class="img"></a>
       </div>
       <div class="_4tdv">
@@ -1654,7 +1654,7 @@ function putYaUp(){
 <!-- TEMPLATE:outcoming message-->
 <script id="outsetMessageTemplate" type="x-tmpl-mustache">
   <div class="_5wd4 _1nc6 direction_ltr">
-    <div class="_5wd9" data-hover="tooltip" data-tooltip-position="right" data-tooltip-content="Mercredi 19:18">
+    <div class="_5wd9" data-hover="tooltip" data-tooltip-position="right" data-tooltip-content="">
       <div class="_5wde _n4o">
         <div class="_5w1r _3_om _5wdf" style="max-width: 177px; word-wrap: break-word; width: 177px;">
           <div class="_4gx_">
@@ -1670,22 +1670,91 @@ function putYaUp(){
 
 
 <script>
-  function insertPost(message , avatar, name){
+
+  function insertPost(data){
     var postMessage, userAvatar, userName, template, rendered;
-    postMessage = message || "null";
-    userAvatar = avatar || "";
-    userName = name || "John Doe";
+    postMessage = data.message || "null";
+    userAvatar = data.avatar || "";
+    userName = data.name || "John Doe";
 
     template = $('#postTemplate').html();
     Mustache.parse(template);   // optional, speeds up future uses
     rendered = Mustache.render(template, {message: postMessage, profileIMG : userAvatar, name : userName});
     $('.postsContainer').append(rendered);
+    checkTextAreas();
   }
+
+  function insertMessage(data){
+    var dataType, postMessage, userAvatar, target, template, rendered;
+    postMessage = data.message || "null";
+    userAvatar = data.avatar || "";
+    dataType = data.type || 'incoming';
+
+    if(dataType === "outcoming"){
+      target="#outsetMessageTemplate";
+    }else{
+      target="#insetMessageTemplate";
+    }
+    console.log(target);
+    template = $(target).html();
+    Mustache.parse(template);   // optional, speeds up future uses
+     if(dataType === "outcoming"){
+      rendered = Mustache.render(template, {message : postMessage });
+    }else{
+      rendered = Mustache.render(template, {profileIMG: userAvatar, message : postMessage });
+    }
+    
+    $('.messageContainer').append(rendered);
+    checkTextAreas();
+  }
+
+
   
 
 </script>
 
+<script>
+var questionNumber = 1;
+  function textAreaAdjust(o) {
+    console.log(o);
+    o.target.style.height = "1px";
+    o.target.style.height = (o.target.scrollHeight)+"px";
+}
 
+
+function checkTextAreas(){
+  var textareas = document.querySelectorAll('textarea');
+  console.log(textareas);
+  for(var i = 0; i<textareas.length; i+=1){
+    console.log(textareas[i]);
+    textareas[i].addEventListener('keyup',textAreaAdjust,true);
+  }
+}
+function getQuestion(number){
+  var xhr = new XMLHttpRequest();
+xhr.open('GET', 'assets/jsons/quest.json',false);
+xhr.addEventListener('load',
+  function(e){
+    var reponse = JSON.parse(e.target.response);
+    return processQuestion(reponse.quizz[number-1]);
+  },true);
+xhr.send();
+}
+ function processQuestion(question){
+  var options= {};
+  options.message = question.quest;
+  options.name = _unm;
+  options.avatar = _uav;
+  insertPost(options);
+  questionNumber+=1;
+  }
+
+function askAQuestion(){
+   getQuestion(questionNumber);
+  
+}
+
+</script>
 </body>
 
 </html>
