@@ -1588,7 +1588,7 @@ function putYaUp(){
         <div data-reactroot="" class="UFIList">
 
             <h6 class="accessible_elem">Commentaires</h6>
-            <div class = "commentContainer">
+            <div class="commentContainer{{ questionNumber }}">
                 <!-- react-empty: 20 -->
 
             </div>
@@ -1723,13 +1723,15 @@ var questionNumber = 1;
     userAvatar = data.avatar || _uav;
     userName = data.name || _unm;
     container = data.container;
-    container = container.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-    container = container.querySelector('.commentContainer');
+    textAreacontainer = container.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+
+
     template = $('#commentTemplate').html();
     Mustache.parse(template);   // optional, speeds up future uses
     rendered = Mustache.render(template, {message: postMessage, profileIMG : userAvatar, name : userName});
-    container.appendChild(rendered);
-
+    $('.commentContainer'+data.questionNumber).append(rendered);
+ 
+    textAreacontainer.style.display='none';
   }
 
 
@@ -1744,14 +1746,18 @@ var questionNumber = 1;
         xhr.addEventListener('load',function(e){
             var reponse = JSON.parse(e.target.response);
             var answers = reponse.quizz[answerNumber-1].resp
-            
+            var chatMessage = reponse.quizz[answerNumber-1].chat
             for(var i= 0; i< answers.length; i+=1){
                 if(answers[i] === inputAnswer.toLowerCase()){
                     console.log("GOOD JOB");
                     insertComment({
                         message : inputAnswer,
-                        container: o
+                        container: o,
+                        questionNumber : answerNumber
                     });
+                    insertMessage({
+                        message : chatMessage
+                    })
                     askAQuestion();
                 }
             }
