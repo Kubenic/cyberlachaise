@@ -32,5 +32,6 @@ $('.fullpage').fullpage({
           var pluginContainer = $(this);
           var bgVid = document.querySelector('.video video');
           bgVid.play();
+          startHitboxes();
       }
   });
