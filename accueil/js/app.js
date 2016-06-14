@@ -7,6 +7,7 @@ document.querySelector('.virgule video').addEventListener('ended',function(e){
 
 $('.fullpage').fullpage({
   scrollingSpeed:300,
+  navigation: true,
   onLeave: function(index, nextIndex, direction){
     var leavingSection = $(this);
     var virgule, virguleVid;
@@ -24,21 +25,20 @@ $('.fullpage').fullpage({
       player.play();
       player.volume = 0.15;
     }
-
-          else if(index == 2 && direction == 'up'){
-              // alert("Going to section 1!");
-              player.pause();
-              var bgVid = document.querySelector('.video video');
-          bgVid.play();
-          }
-      },
-      afterRender: function(){
-          var pluginContainer = $(this);
-          var bgVid = document.querySelector('.video video');
-          bgVid.play();
-          startHitboxes();
-      }
-  });
+    else if(index == 2 && direction == 'up'){
+      // alert("Going to section 1!");
+      player.pause();
+      var bgVid = document.querySelector('.video video');
+      bgVid.play();
+    }
+  },
+  afterRender: function(){
+    var pluginContainer = $(this);
+    var bgVid = document.querySelector('.video video');
+    bgVid.play();
+    startHitboxes();
+  }
+});
 
 var video = document.querySelector('.video video');
 var btnPlay = document.getElementById('play');
