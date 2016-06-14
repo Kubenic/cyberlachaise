@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="timer"></div>
+<button class="restart">restart</button>
+	<script src="timer.js"></script>
+	<script>
+	function finishIt(){
+		document.body.style.background="black";
+	}
+	 var timer = new Timer({
+	 	container : ".timer",
+	 	finishingTime : 3,
+	 	finishCallback: finishIt
+	 });
+
+	 timer.init();
+	 timer.start();
+	 document.querySelector('.restart').addEventListener('click',function(){timer.restart()});
+	 </script>
+</body>
+</html>
