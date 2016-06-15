@@ -3,6 +3,7 @@
   padding: 0;
 }
 body {
+  font-family: 'Inconsolata', sans-serif;
   background: black;
 }
 
@@ -41,12 +42,21 @@ h1, h2, h3, h4, h5, h6, p, span {
   font-size: 1.25em;
 }
 
+.zone-victime {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
 .img {
   display: block;
   width: 121px;
   height: 137px;
-  float: left;
-  margin: 70px 59px 0;
 }
 
 .f {
@@ -58,10 +68,10 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .name {
-  width: 121px;
-  float: left;
-  margin: 10px 59px 0;
-  text-align: center;
+  display: flex;
+  width: 100%;
+  margin-top: 25px;
+  justify-content: space-around;
 }
 
 .icon {
@@ -233,3 +243,4 @@ h1, h2, h3, h4, h5, h6, p, span {
     box-shadow: 0 0 10px 8px rgba(255, 255, 255, 0.5);
   }
 }
+

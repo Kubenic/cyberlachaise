@@ -29,6 +29,9 @@ html.fp-enabled,
     -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
     -moz-box-sizing: border-box; /* <=28 */
     box-sizing: border-box;
+    background: url('../asset/img/section-fond.jpg') no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 .fp-slide {
     float: left;
@@ -168,7 +171,7 @@ html.fp-enabled,
     height: 4px;
     width: 4px;
     border: 0;
-    background: #333;
+    background: #fff;
     left: 50%;
     top: 50%;
     margin: -2px 0 0 -2px;
@@ -220,4 +223,11 @@ html.fp-enabled,
 .fp-responsive .fp-auto-height-responsive .fp-slide,
 .fp-responsive .fp-auto-height-responsive .fp-tableCell {
     height: auto !important;
+}
+
+#fp-nav{
+    display: none;
+}
+#fp-nav ul li:nth-child(1){
+  display: none;
 }
