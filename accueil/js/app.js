@@ -18,7 +18,13 @@ $('.fullpage').fullpage({
 
     virgule.style.display='';
     virguleVid.play();
-
+    console.log(index);
+    console.log(nextIndex);
+      if(nextIndex > 1){
+        document.querySelector('#fp-nav').style.display="block";
+      }else{
+        document.querySelector('#fp-nav').style.display="";
+      }
     //after leaving section 2
     if(index == 1 && direction =='down'){
       // alert("Going to section 3!");
