@@ -1,4 +1,4 @@
-var bgVidContainer = document.querySelector('.video');
+var bgVidContainer = document.querySelector('.video'), isScrolled = true;
 bgVidContainer.style.height= window.innerHeight +'px';
 
 document.querySelector('.virgule video').addEventListener('ended',function(e){
@@ -8,7 +8,10 @@ document.querySelector('.virgule video').addEventListener('ended',function(e){
 $('.fullpage').fullpage({
   scrollingSpeed:300,
   navigation: true,
+
   onLeave: function(index, nextIndex, direction){
+
+    if(isScrolled){
     var leavingSection = $(this);
     var virgule, virguleVid;
     var player = document.querySelector('#audioPlayer');
@@ -18,8 +21,6 @@ $('.fullpage').fullpage({
 
     virgule.style.display='';
     virguleVid.play();
-    console.log(index);
-    console.log(nextIndex);
       if(nextIndex > 1){
         document.querySelector('#fp-nav').style.display="block";
       }else{
@@ -37,6 +38,11 @@ $('.fullpage').fullpage({
       var bgVid = document.querySelector('.video video');
       bgVid.play();
     }
+    isScrolled = false;
+    window.setTimeout(function(){isScrolled=true;},1500);
+  }else{
+    return false;
+  }
   },
   afterRender: function(){
     var pluginContainer = $(this);
