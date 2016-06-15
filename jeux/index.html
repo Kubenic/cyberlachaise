@@ -363,7 +363,7 @@
                         <div class="fbTimelineSection fbTimelineCompactSection fbTimelineSectionTransparent" id="u_0_1f">
                             <div class="fbTimelineCapsule clearfix" data-referrer="pagelet_timeline_recent_ocm" data-start="1459147135" data-end="1464764399" id="u_0_1e">
                                 <div class="_5nb8" id="recent_capsule_container" data-referrer="recent_capsule_container">
-
+                                    <button onclick="askAQuestion();">question</button>
                                     <ol class="_2t4u clearfix" data-pnref="story" data-referrer="pagelet_timeline_recent_ocm" id="u_0_1e_story">
                                         <div class="_5pcb _4b0l postsContainer">
                                            
@@ -1005,7 +1005,7 @@
                                                                                         <div data-reactroot="">
                                                                                             <div class="messageContainer">
 
-                                                                                                <div class="_4tdt">
+                                                                                               <!-- <div class="_4tdt">
                                                                                                     <div class="_31o4">
                                                                                                         <a aria-label="Camille Jean Mercredi 19:18" class="_4tdw" data-hover="tooltip" data-tooltip-content="Camille Jean Mercredi 19:18" data-tooltip-position="left" href="https://www.facebook.com/camille.jean.54"><img src="./assets/13133166_844310629006823_2637599522503877148_n(1).jpg" alt="" class="img"></a>
                                                                                                     </div>
@@ -1164,16 +1164,16 @@
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div>-->
                                                                                     </div>
                                                                                     <div class="accessible_elem">Fin de la conversation</div>
                                                                                     <div>
                                                                                         <div data-reactroot=""></div>
                                                                                     </div>
-                                                                                    <div>
+                                                                                   <!-- <div>
                                                                                         <div data-reactroot="" class="_510g _510e seen">
                                                                                             <div class="_510h"></div><span class="_510f">Vu&nbsp;: 21:12</span></div>
-                                                                                    </div>
+                                                                                    </div> -->
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -1588,8 +1588,9 @@ function putYaUp(){
         <div data-reactroot="" class="UFIList">
 
             <h6 class="accessible_elem">Commentaires</h6>
-            <div>
+            <div class="commentContainer{{ questionNumber }}">
                 <!-- react-empty: 20 -->
+
             </div>
             <div id="addComment_10209883089863542" class="UFIRow _4oep UFIAddComment UFIAddCommentWithPhotoAttacher _2o9m" data-ft="{&quot;tn&quot;:&quot;[&quot;}">
                 <div class="UFIMentionsInputWrap UFIStickersEnabledInput clearfix" direction="left">
@@ -1605,7 +1606,7 @@ function putYaUp(){
                                         <div class="UFIAddCommentInput _1osb _5yk1">
                                             <!-- ZONE TEXTUEL -->
 
-                                            <textarea placeholder="votre commentaire" value="" class="answerInputPost"></textarea>
+                                            <textarea data-question-number="{{ questionNumber }}" placeholder="votre commentaire" value="" class="answerInputPost"></textarea>
                                         </div>
                                     </div>
 
@@ -1625,6 +1626,13 @@ function putYaUp(){
 </script>
 <!-- END TEMPLATE:post -->
 
+<!-- TEMPLATE:comment -->
+<script id="commentTemplate" type="x-tmpl-mustache">
+<div class="UFIRow UFIComment _4oep" role="article" aria-label="Commenter" data-ft="{&quot;tn&quot;:&quot;R&quot;}"><div spacing="medium" direction="left" class="clearfix"><div class="_ohe lfloat"><a data-ft="{&quot;tn&quot;:&quot;T&quot;}" data-hovercard="/ajax/hovercard/hovercard.php?id=1556702837&amp;extragetparams=%7B%22on_public_ufi%22%3Afalse%2C%22hc_location%22%3A%22ufi%22%7D" href="https://www.facebook.com/#" class="img _8o _8s UFIImageBlockImage" tabindex="-1" aria-hidden="true"><img alt="" class="img UFIActorImage _54ru img" src="{{ profileIMG }}"></a></div><div class=""><div class="UFIImageBlockContent _42ef clearfix" direction="right"><div class="_ohf rfloat"><button class="UFICommentCloseButtonFake _50zy _50-0 _50z- _5upp _42ft" tabindex="-1" type="button" title="Supprimer"><!-- react-text: 62 -->Supprimer<!-- /react-text --></button></div><div class=""><div class="UFICommentContentBlock"><div class="UFICommentContent"><span><a data-ft="{&quot;tn&quot;:&quot;;&quot;}" class=" UFICommentActorName" data-hovercard="/ajax/hovercard/hovercard.php?id=1556702837&amp;extragetparams=%7B%22is_public%22%3Afalse%2C%22hc_location%22%3A%22ufi%22%7D" dir="ltr" href="https://www.facebook.com/#"><!-- react-text: 68 -->{{ name }}<!-- /react-text --></a></span><span><!-- react-text: 70 --> <!-- /react-text --><span data-ft="{&quot;tn&quot;:&quot;K&quot;}"><span class="UFICommentBody"><span>
+{{ message }}
+</span></span></span></span><div class="UFITranslatedText"></div><span></span></div><div class="fsm fwn fcg UFICommentActions"><a class="UFILikeLink" data-ft="{&quot;tn&quot;:&quot;>&quot;}" data-testid="ufi_comment_like_link" href="#" role="button" title="J’aime ce commentaire">J’aime</a><span role="presentation" aria-hidden="true"> · </span><a class="UFIReplyLink" href="#" role="button">Répondre</a><span role="presentation" aria-hidden="true"> · </span><span><a class="uiLinkSubtle" href="/permalink.php?story_fbid=10209503698420137&amp;id=1556702837&amp;comment_id=10209505087894873&amp;comment_tracking=%7B%22tn%22%3A%22R%22%7D" data-ft="{&quot;tn&quot;:&quot;N&quot;}" data-testid="ufi_comment_timestamp"><abbr class="livetimestamp" title="mardi 7 juin 2016, 21:14" data-utime="1465326869" data-shorten="true">7 juin, 21:14</abbr></a></span></div><span><a class="UFICommentCloseButton _50zy _50-0 _50z- _5upp _42ft" data-testid="ufi_comment_close_button" data-hover="tooltip" data-tooltip-alignh="center" data-tooltip-content="Masquer ça" href="#"></a></span></div></div></div></div></div></div>
+</script>
+<!-- END TEMPLATE:comment -->
 
 <!-- TEMPLATE:incoming message-->
 <script id="insetMessageTemplate" type="x-tmpl-mustache">
@@ -1670,16 +1678,17 @@ function putYaUp(){
 
 
 <script>
+var questionNumber = 1;
 
   function insertPost(data){
     var postMessage, userAvatar, userName, template, rendered;
     postMessage = data.message || "null";
     userAvatar = data.avatar || "";
-    userName = data.name || "John Doe";
+    userName = data.name || _unm;
 
     template = $('#postTemplate').html();
     Mustache.parse(template);   // optional, speeds up future uses
-    rendered = Mustache.render(template, {message: postMessage, profileIMG : userAvatar, name : userName});
+    rendered = Mustache.render(template, {message: postMessage, profileIMG : userAvatar, name : userName, questionNumber : questionNumber});
     $('.postsContainer').append(rendered);
     checkTextAreas();
   }
@@ -1687,7 +1696,7 @@ function putYaUp(){
   function insertMessage(data){
     var dataType, postMessage, userAvatar, target, template, rendered;
     postMessage = data.message || "null";
-    userAvatar = data.avatar || "";
+    userAvatar = data.avatar || _uav;
     dataType = data.type || 'incoming';
 
     if(dataType === "outcoming"){
@@ -1708,17 +1717,65 @@ function putYaUp(){
     checkTextAreas();
   }
 
+   function insertComment(data){
+    var container, postMessage, userAvatar, userName, template, rendered;
+    postMessage = data.message || "null";
+    userAvatar = data.avatar || _uav;
+    userName = data.name || _unm;
+    container = data.container;
+    textAreacontainer = container.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
 
-  
 
-</script>
+    template = $('#commentTemplate').html();
+    Mustache.parse(template);   // optional, speeds up future uses
+    rendered = Mustache.render(template, {message: postMessage, profileIMG : userAvatar, name : userName});
+    $('.commentContainer'+data.questionNumber).append(rendered);
+ 
+    textAreacontainer.style.display='none';
+  }
 
-<script>
-var questionNumber = 1;
+
+  function verifyAnswer(o){
+    var answerNumber = o.dataset.questionNumber;
+    var inputAnswer = o.value;
+    console.log(inputAnswer);
+    console.log(answerNumber);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'assets/jsons/quest.json',false);
+        xhr.addEventListener('load',function(e){
+            var reponse = JSON.parse(e.target.response);
+            var answers = reponse.quizz[answerNumber-1].resp
+            var chatMessage = reponse.quizz[answerNumber-1].chat
+            for(var i= 0; i< answers.length; i+=1){
+                if(answers[i] === inputAnswer.toLowerCase()){
+                    console.log("GOOD JOB");
+                    insertComment({
+                        message : inputAnswer,
+                        container: o,
+                        questionNumber : answerNumber
+                    });
+                    insertMessage({
+                        message : chatMessage
+                    })
+                    askAQuestion();
+                }
+            }
+        },true);
+        xhr.send();
+
+  }
+
   function textAreaAdjust(o) {
-    console.log(o);
+    //console.log(o);
     o.target.style.height = "1px";
     o.target.style.height = (o.target.scrollHeight)+"px";
+
+    if(o.keyCode === 13){
+        o.preventDefault();
+
+        verifyAnswer(o.target);
+    }
 }
 
 
@@ -1728,8 +1785,14 @@ function checkTextAreas(){
   for(var i = 0; i<textareas.length; i+=1){
     console.log(textareas[i]);
     textareas[i].addEventListener('keyup',textAreaAdjust,true);
+    textareas[i].addEventListener('keydown',function(e){
+        if(e.keyCode === 13){
+            e.preventDefault();
+        }
+    },true);
   }
 }
+
 function getQuestion(number){
   var xhr = new XMLHttpRequest();
 xhr.open('GET', 'assets/jsons/quest.json',false);
