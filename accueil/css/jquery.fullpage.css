@@ -29,6 +29,9 @@ html.fp-enabled,
     -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
     -moz-box-sizing: border-box; /* <=28 */
     box-sizing: border-box;
+    background: url('../asset/img/section-fond.jpg') no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 .fp-slide {
     float: left;
