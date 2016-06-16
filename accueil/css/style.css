@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   /*text-align: justify;*/
   line-height: 23px;
   font-size: 1.10em;
+  max-width: 800px;
 }
 
 .zone-victime {
