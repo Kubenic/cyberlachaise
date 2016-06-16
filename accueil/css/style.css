@@ -36,9 +36,9 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .txt {
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
-  text-align: justify;
+  /*text-align: justify;*/
   line-height: 23px;
   font-size: 1.25em;
 }
