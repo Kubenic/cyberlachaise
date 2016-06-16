@@ -17,16 +17,17 @@ h1, h2, h3, h4, h5, h6, p, span {
   left: 50%;
   z-index: 10;
   pointer-events: none;
-  transform: translateX(-50%) translateY(-50%);
+  /*transform: translateX(-50%) translateY(-50%);*/
 }
 
 .wrap.victime {
+  width: 100%;
   position: absolute;
-  top: 15%;
-  left: 30%;
+  top: 10vw;
+  left: 0;
   z-index: 10;
   pointer-events: none;
-  transform: translateX(-30%) translateY(-15%);
+  /*transform: translateX(-30%) translateY(-15%);*/
 }
 
 .title {
@@ -35,7 +36,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .txt {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   text-align: justify;
   line-height: 23px;
@@ -43,6 +44,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .zone-victime {
+  margin: 0 25vw;
   display: flex;
   flex-direction: column;
 }
@@ -241,6 +243,25 @@ h1, h2, h3, h4, h5, h6, p, span {
   }
   100% {
     box-shadow: 0 0 10px 8px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.titleGlitch{
+  width: 400px;
+  margin: 0 20%;
+}
+
+@media screen and (min-width:641px) and (max-width:1175px){
+  .zone-victime {
+    margin: 0 10vw;
+
+  }
+}
+
+@media screen and (max-width:640px){
+  .zone-victime {
+    margin: 0 ;
+
   }
 }
 
